@@ -1,0 +1,17 @@
+CoreC - A native c/c++ library, exposes a C interface
+- add numbers
+
+CoreRust - A native Rust library, exposes a C interface
+- multiply numbers
+
+WrapperR - A rust library that wraps the native libraries and exposes a C interface
+- add or multiply
+
+WrapperC - A C library that wraps the the native libraries and exposes a C interface
+- add or multiply
+
+AppC - A C++ appllication that uses WrapperR and WrapperC
+AppR - A Rust application that uses WrapperR and WrapperC
+AppP - A Python application that uses WrapperR and WrapperC
+
+
