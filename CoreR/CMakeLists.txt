@@ -11,11 +11,18 @@ else ()
 endif ()
 
 set(CARGO_FLAGS ${CARGO_RELEASE} --manifest-path "${CMAKE_CURRENT_SOURCE_DIR}/Cargo.toml" --target-dir "${CMAKE_CURRENT_BINARY_DIR}")
-ExternalProject_Add(core_r
-#        BINARY_DIR ${TARGET_DIR}
+ExternalProject_Add(cargo_core_r
         DOWNLOAD_COMMAND ""
         CONFIGURE_COMMAND ""
         BUILD_COMMAND cargo build ${CARGO_FLAGS}
         INSTALL_COMMAND ""
         TEST_COMMAND cargo test ${CARGO_FLAGS})
+
+add_library(core_r STATIC IMPORTED GLOBAL)
+set_target_properties(core_r PROPERTIES
+    IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_DIR}/${CMAKE_STATIC_LIBRARY_PREFIX}core_r${CMAKE_STATIC_LIBRARY_SUFFIX})
+target_include_directories(core_r INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/ffi)
+target_link_libraries(core_r INTERFACE dl pthread m)
+
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_DIR}/libcore_r.a DESTINATION lib)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ffi/core_r.h DESTINATION include)
