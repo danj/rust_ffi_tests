@@ -20,7 +20,7 @@ ExternalProject_Add(cargo_core_r
 
 add_library(core_r STATIC IMPORTED GLOBAL)
 set_target_properties(core_r PROPERTIES
-    IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_DIR}/${CMAKE_STATIC_LIBRARY_PREFIX}core_r${CMAKE_STATIC_LIBRARY_SUFFIX})
+        IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_DIR}/libcore_r.a)
 target_include_directories(core_r INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/ffi)
 target_link_libraries(core_r INTERFACE dl pthread m)
 

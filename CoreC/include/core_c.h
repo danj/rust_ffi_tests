@@ -11,4 +11,4 @@ int add(int a, int b);
 }
 #endif
 
-#endif
+#endif //CORE_C_H
