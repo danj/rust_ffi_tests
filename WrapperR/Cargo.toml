@@ -13,3 +13,4 @@ core_r = { path = "../CoreR" }
 
 [build-dependencies]
 bindgen = "0.53.1"
+cbindgen = "0.20.0"

@@ -1,14 +1,11 @@
-#ifndef FFI_CORE_R_H
-#define FFI_CORE_R_H
+#include <cstdarg>
+#include <cstdint>
+#include <cstdlib>
+#include <ostream>
+#include <new>
 
-#ifdef __cplusplus
 extern "C" {
-#endif
 
-extern int product(int a, int b);
+int32_t product(int32_t a, int32_t b);
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif //FFI_CORE_R_H
+} // extern "C"

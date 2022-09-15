@@ -1,19 +1,16 @@
-#ifndef FFI_TESTS_WRAPPER_R_H
-#define FFI_TESTS_WRAPPER_R_H
+#include <cstdarg>
+#include <cstdint>
+#include <cstdlib>
+#include <ostream>
+#include <new>
 
-#ifdef __cplusplus
+struct both_r {
+  int32_t product;
+  int32_t sum;
+};
+
 extern "C" {
-#endif
 
-typedef struct {
-    int product;
-    int sum;
-} both_r_t;
+both_r both_r(int32_t a, int32_t b);
 
-extern both_r_t both_r(int a, int b);
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif //FFI_TESTS_WRAPPER_R_H
+} // extern "C"
