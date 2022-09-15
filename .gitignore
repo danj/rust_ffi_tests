@@ -12,6 +12,6 @@ CTestTestfile.cmake
 _deps
 *.swp
 
-CoreR/target
+target/
 cmake-build-*
 .idea/

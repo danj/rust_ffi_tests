@@ -13,10 +13,11 @@ endif ()
 set(CARGO_FLAGS ${CARGO_RELEASE}
         --manifest-path "${CMAKE_CURRENT_SOURCE_DIR}/Cargo.toml"
         --target-dir "${CMAKE_CURRENT_BINARY_DIR}")
+
 ExternalProject_Add(cargo_app_r
         DOWNLOAD_COMMAND ""
         CONFIGURE_COMMAND ""
-        BUILD_COMMAND EXTRA_LINK_PATH=${CMAKE_CURRENT_BINARY_DIR}/../CoreC,${CMAKE_CURRENT_BINARY_DIR}/../WrapperC,${CMAKE_CURRENT_BINARY_DIR}/../CoreR/${TARGET_DIR},${CMAKE_CURRENT_BINARY_DIR}/../WrapperR/${TARGET_DIR} cargo build ${CARGO_FLAGS}
+        BUILD_COMMAND LINK_PATHS=${CMAKE_CURRENT_BINARY_DIR}/../CoreC,${CMAKE_CURRENT_BINARY_DIR}/../WrapperC INCLUDE_PATHS=${CMAKE_SOURCE_DIR}/CoreC/include,${CMAKE_SOURCE_DIR}/WrapperC/include cargo build ${CARGO_FLAGS}
         INSTALL_COMMAND ""
         TEST_COMMAND cargo test ${CARGO_FLAGS}
         DEPENDS wrapper_r wrapper_c)

@@ -16,7 +16,7 @@ set(CARGO_FLAGS ${CARGO_RELEASE}
 ExternalProject_Add(cargo_wrapper_r
         DOWNLOAD_COMMAND ""
         CONFIGURE_COMMAND ""
-        BUILD_COMMAND EXTRA_LINK_PATH=${CMAKE_CURRENT_BINARY_DIR}/../CoreC cargo build ${CARGO_FLAGS}
+        BUILD_COMMAND LINK_PATHS=${CMAKE_CURRENT_BINARY_DIR}/../CoreC INCLUDE_PATHS=${CMAKE_SOURCE_DIR}/CoreC/include cargo build ${CARGO_FLAGS}
         INSTALL_COMMAND ""
         TEST_COMMAND cargo test ${CARGO_FLAGS}
         DEPENDS core_c core_r)

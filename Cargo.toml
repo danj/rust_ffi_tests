@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "AppR",
+    "CoreR",
+    "WrapperR"
+]

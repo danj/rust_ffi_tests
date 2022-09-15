@@ -1,27 +1,13 @@
-mod core_c {
-    #[link(name = "core_c")]
-    extern {
-        fn add(a: i32, b: i32) -> i32;
-    }
+mod core {
+    #![allow(non_upper_case_globals)]
+    #![allow(non_camel_case_types)]
+    #![allow(non_snake_case)]
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
     pub fn add_s(a: i32, b: i32) -> i32 {
         unsafe {
             add(a, b)
         }
-    }
-}
-
-mod wrapper_c {
-    #[repr(C)]
-    #[derive(Debug)]
-    pub struct both_c_t {
-        sum: i32,
-        product: i32,
-    }
-
-    #[link(name = "wrapper_c")]
-    extern {
-        fn both_c(a: i32, b: i32) -> both_c_t;
     }
 
     pub fn both_c_s(a: i32, b: i32) -> both_c_t {
@@ -36,8 +22,8 @@ fn main() {
     let a: i32 = 12;
     let b: i32 = 88;
 
-    println!("Add: {}", core_c::add_s(a, b));
+    println!("Add: {}", core::add_s(a, b));
     println!("Product: {}", core_r::product(a, b));
     println!("Both_r: {:?}", wrapper_r::both_r(a, b));
-    println!("Both_c: {:?}", wrapper_c::both_c_s(a, b));
+    println!("Both_c: {:?}", core::both_c_s(a, b));
 }

@@ -1,10 +1,10 @@
 // use core_r;
 
 mod core_c {
-    #[link(name = "core_c")]
-    extern {
-        fn add(a: i32, b: i32) -> i32;
-    }
+    #![allow(non_upper_case_globals)]
+    #![allow(non_camel_case_types)]
+    #![allow(non_snake_case)]
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
     pub fn add_s(a: i32, b: i32) -> i32 {
         unsafe {
