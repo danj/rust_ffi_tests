@@ -8,4 +8,5 @@ add_subdirectory(WrapperC)
 add_subdirectory(WrapperR)
 
 add_subdirectory(AppC)
+add_subdirectory(AppR)
 
