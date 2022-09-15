@@ -13,3 +13,5 @@ _deps
 *.swp
 
 CoreR/target
+cmake-build-debug/
+.idea/
