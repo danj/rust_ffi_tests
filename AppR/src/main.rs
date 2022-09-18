@@ -10,6 +10,12 @@ mod core {
         }
     }
 
+    pub fn sub_s(a: i32, b: i32) -> i32 {
+        unsafe {
+            sub(a, b)
+        }
+    }
+
     pub fn both_c_s(a: i32, b: i32) -> both_c_t {
         unsafe {
             both_c(a, b)
@@ -19,11 +25,13 @@ mod core {
 
 fn main() {
     println!("Hello, world!");
-    let a: i32 = 12;
-    let b: i32 = 88;
+    let a: i32 = 100;
+    let b: i32 = 10;
 
     println!("Add: {}", core::add_s(a, b));
+    println!("Subtract: {}", core::sub_s(a, b));
     println!("Product: {}", core_r::product(a, b));
+    println!("Ratio: {}", core_r::ratio(a, b));
     println!("Both_r: {:?}", wrapper_r::both_r(a, b));
     println!("Both_c: {:?}", core::both_c_s(a, b));
 }

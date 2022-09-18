@@ -8,4 +8,6 @@ extern "C" {
 
 int32_t product(int32_t a, int32_t b);
 
+int32_t ratio(int32_t a, int32_t b);
+
 } // extern "C"

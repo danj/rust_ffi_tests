@@ -14,6 +14,8 @@ int main() {
   cout << "Hello world!" << endl;
   cout << "Adding: " << add(4, 5) << endl;
   cout << "Product: " << product(4, 5) << endl;
+  cout << "Subtracting: " << sub(10, 5) << endl;
+  cout << "Ratio: " << ratio(10, 5) << endl;
 
   auto c = both_c(4, 5);
   cout << "Both from C: " << c.sum << ',' << c.product << endl;

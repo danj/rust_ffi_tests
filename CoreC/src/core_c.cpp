@@ -7,3 +7,8 @@ int add(int a, int b) {
     cerr << "C -- a: " << a << " b: " << b << endl;
     return a + b;
 }
+
+int sub(int a, int b) {
+    cerr << "C -- a: " << a << " b: " << b << endl;
+    return a - b;
+}
