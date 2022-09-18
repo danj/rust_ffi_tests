@@ -1,5 +1,4 @@
 use std::env;
-use std::ffi::OsString;
 use std::path::PathBuf;
 
 fn main() {
@@ -7,10 +6,12 @@ fn main() {
         for build_path in build_dirs.into_string().unwrap().split(',') {
             println!("cargo:warning={}", build_path);
             println!("cargo:rustc-link-search=native={}", build_path);
+            println!("cargo:rerun-if-changed={}", build_path);
         }
     }
     println!("cargo:rustc-link-lib=core_c");
     println!("cargo:rustc-link-lib=wrapper_c");
+    println!("cargo:rustc-link-lib=stdc++");
 
     println!("cargo:rerun-if-changed=ffi/ffi_wrapper.h");
     let mut bindgen_builder = bindgen::Builder::default();
